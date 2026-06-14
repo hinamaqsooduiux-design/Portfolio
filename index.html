@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hina Maqsood | UI UX Designer</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght=300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -21,6 +21,7 @@ body{
 background:#050505;
 color:white;
 overflow-x:hidden;
+position:relative;
 }
 
 body::before{
@@ -53,10 +54,12 @@ justify-content:space-between;
 align-items:center;
 padding:20px 10%;
 backdrop-filter:blur(20px);
+-webkit-backdrop-filter:blur(20px);
 position:sticky;
 top:0;
 background:rgba(0,0,0,0.3);
 z-index:1000;
+transition: padding 0.3s ease;
 }
 
 /* updated logo */
@@ -76,6 +79,8 @@ nav ul{
 display:flex;
 list-style:none;
 gap:30px;
+flex-wrap: wrap;
+justify-content: center;
 }
 
 nav ul li a{
@@ -106,10 +111,18 @@ border:3px solid #9d4edd;
 box-shadow:
 0 0 20px #9d4edd,
 0 0 60px rgba(157,78,221,.5);
+flex-shrink: 0;
+max-width: 100%;
+}
+
+.hero-text{
+flex: 1;
+max-width: 650px;
 }
 
 .hero-text h1{
 font-size:60px;
+line-height: 1.2;
 }
 
 .hero-text h1 span{
@@ -132,6 +145,8 @@ color:white;
 text-decoration:none;
 border-radius:50px;
 font-weight:600;
+text-align: center;
+white-space: nowrap;
 }
 
 section{
@@ -148,6 +163,7 @@ margin-bottom:50px;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:25px;
+width: 100%;
 }
 
 .card{
@@ -156,6 +172,7 @@ border:1px solid rgba(255,255,255,.1);
 padding:30px;
 border-radius:20px;
 backdrop-filter:blur(15px);
+-webkit-backdrop-filter:blur(15px);
 transition:.4s;
 }
 
@@ -177,12 +194,13 @@ color:#9d4edd;
   display: flex;
   flex-direction: column;
   gap: 18px;
-
   padding: 12px;
   background: rgba(0,0,0,0.35);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-radius: 20px;
   z-index: 999;
+  transition: all 0.3s ease;
 }
 
 /* icon style */
@@ -230,15 +248,14 @@ color:#9d4edd;
   display: flex;
   align-items: center;
   gap: 12px;
-
   padding: 14px 20px;
   border-radius: 14px;
-
   background: rgba(255,255,255,0.05);
   backdrop-filter: blur(10px);
-
+  -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255,255,255,0.1);
   transition: 0.3s ease;
+  max-width: 100%;
 }
 
 /* hover effect */
@@ -259,13 +276,12 @@ color:#9d4edd;
   color: #ffffff;
   text-decoration: none;
   font-size: 16px;
+  word-break: break-all;
 }
+
 .footer{
-
 background:#0b0b0b;
-
 padding:50px 10%;
-
 }
 
 .project-card {
@@ -274,6 +290,7 @@ padding:50px 10%;
     border-radius: 24px;
     padding: 25px;
     transition: 0.3s;
+    width: 100%;
 }
 
 /* TOP SECTION: IMAGE LEFT + TEXT RIGHT */
@@ -292,6 +309,8 @@ padding:50px 10%;
     width: 100%;
     max-width: 420px;
     border-radius: 18px;
+    height: auto;
+    display: block;
 }
 
 /* TEXT RIGHT */
@@ -340,50 +359,6 @@ padding:50px 10%;
     transform: translateY(-2px);
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    .project-top {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .project-info h3 {
-        font-size: 1.5rem;
-    }
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    .project-top {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .project-info h3 {
-        font-size: 1.5rem;
-    }
-}
-
-/* LIKE BUTTON */
-
-.like-btn{
-background:#9d4edd;
-border:none;
-padding:12px 25px;
-border-radius:50px;
-color:white;
-cursor:pointer;
-
-}
-
-/* COMMENTS (LinkedIn Style) */
-
-body{
-font-family: Arial;
-background:#0f0f0f;
-color:white;
-}
-
 /* LIKE BUTTON */
 .like-btn{
 background:#9d4edd;
@@ -393,6 +368,7 @@ border-radius:50px;
 color:white;
 cursor:pointer;
 transition:0.3s;
+display: inline-block;
 }
 
 .like-btn:hover{
@@ -400,6 +376,10 @@ transform:scale(1.05);
 }
 
 /* COMMENTS */
+.comments{
+width: 100%;
+}
+
 .comments textarea{
 width:100%;
 height:120px;
@@ -410,6 +390,7 @@ border-radius:10px;
 color:white;
 margin-top:20px;
 outline:none;
+resize: vertical;
 }
 
 .comments button{
@@ -430,6 +411,7 @@ transform:scale(1.05);
 /* COMMENT BOX */
 .comment-box{
 margin-top:20px;
+width: 100%;
 }
 
 /* COMMENT CARD */
@@ -452,6 +434,7 @@ transform:translateY(-2px);
 margin:8px 0;
 color:white;
 line-height:1.4;
+word-break: break-word;
 }
 
 /* ACTION BUTTONS */
@@ -506,26 +489,160 @@ color:#ccc;
 margin-top:5px;
 padding-left:10px;
 border-left:2px solid #333;
+word-break: break-word;
 }
 
-/* MOBILE RESPONSIVE */
-@media(max-width:900px){
 
-.hero{
-flex-direction:column;
-text-align:center;
+/* ==========================================================================
+   PROFESSIONAL MEDIA QUERIES (Consolidated & Highly Optimized)
+   ========================================================================== */
+
+/* Large Desktop (1440px+) */
+@media (min-width: 1440px) {
+  nav, .hero, section, .footer {
+    padding-left: 12%;
+    padding-right: 12%;
+  }
 }
 
-.hero h1{
-font-size:45px;
+/* Desktop (1200px – 1439px) */
+@media (max-width: 1439px) {
+  .hero-text h1 {
+    font-size: 52px;
+  }
 }
 
-.hero img{
-width:280px;
-height:280px;
-}
+/* Laptop (992px – 1199px) */
+@media (max-width: 1199px) {
+  nav {
+    padding: 20px 5%;
+  }
+  .hero {
+    gap: 40px;
+    padding: 80px 5%;
+  }
+  section, .footer {
+    padding: 80px 5%;
+  }
+  .hero-text h1 {
+    font-size: 45px;
+  }
 }
 
+/* Tablet (768px – 991px) */
+@media (max-width: 991px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    gap: 40px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-text p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .project-top {
+    flex-direction: column;
+    text-align: center;
+  }
+  .project-image img {
+    margin: 0 auto;
+  }
+  .project-info h3 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Mobile Large (576px – 767px) */
+@media (max-width: 767px) {
+  nav {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 5%;
+  }
+  nav ul {
+    gap: 20px;
+  }
+  .hero-text h1 {
+    font-size: 36px;
+  }
+  .hero img {
+    width: 280px;
+    height: 280px;
+  }
+  .title {
+    font-size: 32px;
+    margin-bottom: 35px;
+  }
+  section, .footer {
+    padding: 60px 5%;
+  }
+  .cards {
+    grid-template-columns: 1fr;
+  }
+  .social-float {
+    position: static;
+    transform: none;
+    flex-direction: row;
+    justify-content: center;
+    width: fit-content;
+    margin: 30px auto 0 auto;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .social-float a:hover {
+    transform: translateY(-5px) scale(1.1);
+  }
+  .reply-box {
+    margin-left: 20px;
+  }
+}
+
+/* Mobile Small (320px – 575px) */
+@media (max-width: 575px) {
+  .hero-text h1 {
+    font-size: 28px;
+  }
+  .hero-text p {
+    font-size: 15px;
+  }
+  .hero img {
+    width: 240px;
+    height: 240px;
+    border-radius: 20px;
+  }
+  .btn {
+    padding: 12px 28px;
+    font-size: 15px;
+    width: 100%;
+  }
+  .project-bottom .btn {
+    width: auto;
+  }
+  .title {
+    font-size: 26px;
+  }
+  .card {
+    padding: 20px;
+  }
+  .project-card {
+    padding: 15px;
+  }
+  .comment {
+    padding: 12px;
+  }
+  .reply-box {
+    margin-left: 10px;
+    padding-left: 8px;
+  }
+}
 </style>
 </head>
 
@@ -550,7 +667,7 @@ height:280px;
 <h1>Hi, I'm <span>Hina Maqsood</span></h1>
 
 <p>
-    UI/UX Designer | Crafting Intuitive and User-Centered Digital Experiences
+    UI/UX Designer | Crafting Intuitive and User-Centered<br> Digital Experiences
 </p>
 
 <a href="#case-study" class="btn">View my Work</a>
@@ -630,7 +747,7 @@ As an aspiring freelance designer, I enjoy solving design challenges through use
 
 <div class="card">
 <h3>Bachelor of Science in Computer Science</h3>
-<p>Virtual University(2022-2026</p>
+<p>Virtual University(2022-2026)</p>
 <br>
 <p>Focused on Software Engineering, Human-Computer Interaction (HCI), and UI/UX Design, developing skills in user-centered design, problem-solving, and digital product development.</p>
 </div>
