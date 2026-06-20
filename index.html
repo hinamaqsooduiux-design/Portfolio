@@ -10,145 +10,206 @@
 <style>
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-scroll-behavior:smooth;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+  scroll-behavior:smooth;
 }
 
 body{
-background:#050505;
-color:white;
-overflow-x:hidden;
-position:relative;
+  background:#050505;
+  color:white;
+  overflow-x:hidden;
+  position:relative;
 }
 
+/* BACKGROUND GLOW */
 body::before{
-content:'';
-position:fixed;
-width:500px;
-height:500px;
-background:#7b2cff;
-filter:blur(250px);
-top:-100px;
-left:-100px;
-z-index:-1;
+  content:'';
+  position:fixed;
+  width:500px;
+  height:500px;
+  background:#7b2cff;
+  filter:blur(220px);
+  top:-120px;
+  left:-120px;
+  z-index:-1;
+  opacity:0.7;
 }
 
 body::after{
-content:'';
-position:fixed;
-width:500px;
-height:500px;
-background:#00d4ff;
-filter:blur(250px);
-bottom:-100px;
-right:-100px;
-z-index:-1;
+  content:'';
+  position:fixed;
+  width:500px;
+  height:500px;
+  background:#00d4ff;
+  filter:blur(220px);
+  bottom:-120px;
+  right:-120px;
+  z-index:-1;
+  opacity:0.7;
 }
 
+/* NAVBAR */
 nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 10%;
-backdrop-filter:blur(20px);
--webkit-backdrop-filter:blur(20px);
-position:sticky;
-top:0;
-background:rgba(0,0,0,0.3);
-z-index:1000;
-transition: padding 0.3s ease;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 10%;
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  position:sticky;
+  top:0;
+  background:rgba(0,0,0,0.35);
+  z-index:1000;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  transition:0.3s ease;
 }
 
-/* updated logo */
+/* LOGO */
 .logo{
-font-size:28px;
-font-weight:700;
-color:#fff;
-text-decoration:none;
-cursor:pointer;
+  font-size:35px;
+  font-weight:700;
+  color:#fff;
+  text-decoration:none;
+  cursor:pointer;
 }
 
 .logo span{
-color:#9d4edd;
+  color:#00d4ff;
 }
 
+/* NAV LINKS */
 nav ul{
-display:flex;
-list-style:none;
-gap:30px;
-flex-wrap: wrap;
-justify-content: center;
+  display:flex;
+  list-style:none;
+  gap:30px;
+  flex-wrap:wrap;
 }
 
 nav ul li a{
-text-decoration:none;
-color:white;
-transition:.3s;
+  position:relative;
+  text-decoration:none;
+  color:rgba(255,255,255,0.8);
+  font-size:18px;
+  transition:0.3s;
+}
+
+nav ul li a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-5px;
+  width:0%;
+  height:2px;
+  background:linear-gradient(90deg,#9d4edd,#00d4ff);
+  transition:0.3s;
 }
 
 nav ul li a:hover{
-color:#00d4ff;
+  color:#fff;
 }
 
+nav ul li a:hover::after{
+  width:100%;
+}
+
+/* HERO */
 .hero{
-min-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-gap:80px;
-padding:80px 10%;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:80px;
+  padding:80px 10%;
 }
 
 .hero img{
-width:350px;
-height:350px;
-object-fit:cover;
-border-radius:30px;
-border:3px solid #9d4edd;
-box-shadow:
-0 0 20px #9d4edd,
-0 0 60px rgba(157,78,221,.5);
-flex-shrink: 0;
-max-width: 100%;
+  width:350px;
+  height:350px;
+  object-fit:cover;
+  border-radius:30px;
+  border:2px solid #00d4ff;
+  box-shadow:
+    0 0 20px rgba(157,78,221,0.4),
+    0 0 20px #00d4ff;
+  transition:0.4s ease;
+  max-width:100%;
+}
+
+.hero img:hover{
+  transform:scale(1.03);
+  box-shadow:
+    0 0 20px rgba(157,78,221,0.4),
+    0 0 20px #00d4ff;
+  transform:translateY(-10px);
+  box-shadow:0 0 30px rgba(157,78,221,.4);
+  transform: translateY(-5px);
+  border-color: #00d4ff;
+  box-shadow: 0 10px 25px rgba(0,212,255,0.2);
 }
 
 .hero-text{
-flex: 1;
-max-width: 650px;
+  flex:1;
+  max-width:650px;
 }
 
 .hero-text h1{
-font-size:60px;
-line-height: 1.2;
+  font-size:58px;
+  line-height:1.2;
+  letter-spacing:-1px;
 }
 
 .hero-text h1 span{
-color:#9d4edd;
+  color:#00d4ff;
 }
 
 .hero-text p{
-margin-top:15px;
-font-size:18px;
-color:#ccc;
-max-width:600px;
+  margin-top:15px;
+  font-size:17px;
+  color:rgba(255,255,255,0.75);
+  max-width:600px;
+  line-height:1.6;
 }
 
+/* BUTTON */
 .btn{
-display:inline-block;
-margin-top:25px;
-padding:14px 35px;
-background:linear-gradient(45deg,#9d4edd,#00d4ff);
-color:white;
-text-decoration:none;
-border-radius:50px;
-font-weight:600;
-text-align: center;
-white-space: nowrap;
+  display:inline-block;
+  margin-top:25px;
+  padding:14px 35px;
+  background:linear-gradient(135deg,#9d4edd,#00d4ff);
+  color:white;
+  text-decoration:none;
+  border-radius:50px;
+  font-weight:600;
+  transition:0.3s ease;
+  box-shadow:0 8px 20px rgba(0,212,255,0.2);
+  position:relative;
+  overflow:hidden;
 }
 
+.btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 30px rgba(0,212,255,0.35);
+}
+
+/* SHINE EFFECT */
+.btn::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background:rgba(255,255,255,0.15);
+  transform:skewX(-20deg);
+  transition:0.5s;
+}
+
+.btn:hover::after{
+  left:120%;
+}
 section{
 padding:100px 10%;
 }
@@ -179,11 +240,357 @@ transition:.4s;
 .card:hover{
 transform:translateY(-10px);
 box-shadow:0 0 30px rgba(157,78,221,.4);
+  transform: translateY(-5px);
+  border-color: #00d4ff;
+  box-shadow: 0 10px 25px rgba(0,212,255,0.2);
 }
 
 .card h3{
-margin-bottom:10px;
+margin-bottom:15px;
 color:#9d4edd;
+}
+
+/* Experience Card */
+.experience-card{
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+
+/* Header inside card */
+.card-header{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+
+/* Company logo */
+.company-logo{
+  width:55px;
+  height:55px;
+  border-radius:12px;
+  object-fit:cover;
+  border:1px solid rgba(255,255,255,.2);
+  background:#fff;
+}
+
+/* Text styles */
+.card h3{
+  margin:0;
+  font-size:20px;
+  color: #fff;
+}
+
+.company{
+  margin:2px 0;
+  font-size:15px;
+  color:#00d4ff;
+}
+
+.duration{
+  font-size:13px;
+  color:rgba(255,255,255,0.6);
+}
+
+/* Description */
+.desc{
+  font-size:17px;
+  line-height:1.6;
+  color:rgba(255,255,255,0.8);
+}
+
+/* Hover fix (remove duplicate transform issue) */
+.card:hover{
+  transform:translateY(-8px);
+  border-color:#00d4ff;
+  box-shadow:0 10px 25px rgba(0,212,255,0.2);
+}
+
+.service-card{
+  text-align:center;
+  transition:.4s;
+}
+
+/* Icon style */
+.service-card .icon{
+  font-size:40px;
+  margin-bottom:15px;
+  display:inline-block;
+  padding:15px;
+  border-radius:15px;
+  background:rgba(0,212,255,0.1);
+  border:1px solid rgba(0,212,255,0.2);
+  transition:.3s;
+}
+
+/* Hover effect */
+.service-card:hover .icon{
+  transform:scale(1.1) rotate(5deg);
+  background:rgba(0,212,255,0.2);
+}
+
+.service-card h3{
+  margin:10px 0;
+  font-size:20px;
+  color:#fff;
+}
+
+.service-card p{
+  font-size:17px;
+  line-height:1.6;
+  color:rgba(255,255,255,0.75);
+}
+
+/* Keep your existing hover */
+.card:hover{
+  transform:translateY(-8px);
+  border-color:#00d4ff;
+  box-shadow:0 10px 25px rgba(0,212,255,0.2);
+}
+
+.review-card{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+/* Client header */
+.client-header{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+/* Client image */
+.client-img{
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  object-fit:cover;
+  border:2px solid rgba(0,212,255,0.4);
+}
+
+/* Name */
+.client-header h3{
+  margin:0;
+  font-size:20px;
+  color:#fff;
+}
+
+/* Role */
+.client-header span{
+  font-size:15px;
+  color:rgba(255,255,255,0.6);
+}
+
+/* Rating */
+.rating{
+  color:#ffd700;
+  font-size:16px;
+  letter-spacing:2px;
+}
+
+/* Review text */
+.review-card p{
+  font-size:17;
+  line-height:1.6;
+  color:rgba(255,255,255,0.8);
+}
+
+/* Hover effect (same style consistency) */
+.card:hover{
+  transform:translateY(-8px);
+  border-color:#00d4ff;
+  box-shadow:0 10px 25px rgba(0,212,255,0.2);
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+}
+
+/* Main Skill Card */
+.skill-advanced{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  padding:25px;
+  border-radius:20px;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
+  backdrop-filter:blur(15px);
+  -webkit-backdrop-filter:blur(15px);
+  transition:0.4s ease;
+}
+
+/* Top section */
+.skill-top{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+/* Icon */
+.skill-icon{
+  width:45px;
+  height:45px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:12px;
+  background:rgba(0,212,255,0.1);
+  border:1px solid rgba(0,212,255,0.2);
+  font-size:20px;
+}
+
+/* Title */
+.skill-advanced h3{
+  margin:0;
+  font-size:20px;
+  color:#fff;
+}
+
+/* Description */
+.skill-advanced p{
+  font-size:17px;
+  color:rgba(255,255,255,0.75);
+  line-height:1.5;
+  margin:0;
+}
+
+/* Tags */
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:5px;
+}
+
+.tags span{
+  font-size:13px;
+  padding:5px 10px;
+  border-radius:50px;
+  background:rgba(0,212,255,0.08);
+  border:1px solid rgba(0,212,255,0.2);
+  color:#00d4ff;
+}
+
+/* Hover effect */
+.skill-advanced:hover{
+  transform:translateY(-10px);
+  border-color:#00d4ff;
+  box-shadow:0 10px 30px rgba(0,212,255,0.25);
+}
+
+.education-card{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+/* Top row */
+.edu-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+}
+
+/* Title */
+.education-card h3{
+  margin:0;
+  font-size:20px;
+  color:#fff;
+}
+
+/* Badge (duration) */
+.badge{
+  font-size:13px;
+  padding:5px 10px;
+  border-radius:50px;
+  background:rgba(0,212,255,0.1);
+  border:1px solid rgba(0,212,255,0.3);
+  color:#00d4ff;
+  white-space:nowrap;
+}
+
+/* Institute */
+.institute{
+  margin:0;
+  font-size:15px;
+  color:#00d4ff;
+}
+
+/* Description */
+.desc{
+  font-size:17px;
+  line-height:1.6;
+  color:rgba(255,255,255,0.75);
+}
+
+/* Hover effect */
+.education-card:hover{
+  transform:translateY(-8px);
+  border-color:#00d4ff;
+  box-shadow:0 10px 25px rgba(0,212,255,0.2);
+}
+
+.about-card{
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+
+/* Intro highlight */
+.intro{
+  font-size:20px;
+  color:#fff;
+  line-height:1.7;
+}
+
+/* Paragraphs */
+.about-card p{
+  font-size:17px;
+  color:rgba(255,255,255,0.75);
+  line-height:1.6;
+  margin:0;
+}
+
+/* Section heading */
+.about-card h3{
+  margin:10px 0 5px;
+  font-size:20px;
+  color:#fff;
+}
+
+/* Process tags */
+.process{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.process span{
+  font-size:13px;
+  padding:6px 10px;
+  border-radius:50px;
+  background:rgba(0,212,255,0.08);
+  border:1px solid rgba(0,212,255,0.2);
+  color:#00d4ff;
+  transition:0.3s;
+}
+
+.process span:hover{
+  transform:scale(1.05);
+  background:rgba(0,212,255,0.15);
+}
+
+/* Hover effect */
+.about-card:hover{
+  transform:translateY(-8px);
+  border-color:#00d4ff;
+  box-shadow:0 10px 25px rgba(0,212,255,0.2);
 }
 
 .social-float{
@@ -324,13 +731,14 @@ padding:50px 10%;
 
 .project-info h3 {
     font-size: 1.8rem;
-    color: #9d4edd;
+    color: #fff;
     margin-bottom: 10px;
 }
 
 .project-info p {
     color: #ccc;
     line-height: 1.7;
+    font-size: 17px;
 }
 
 /* BOTTOM SECTION */
@@ -343,6 +751,7 @@ padding:50px 10%;
 .project-bottom p {
     color: #ccc;
     line-height: 1.6;
+    font-size: 17px;
 }
 
 /* BUTTON */
@@ -359,7 +768,7 @@ padding:50px 10%;
 }
 
 .project-bottom .btn:hover {
-    background: linear-gradient(135deg, #9d4edd, #00d4ff);
+    background: linear-gradient(45deg, #9d4edd, #00d4ff);
     transform: translateY(-2px);
 }
 
@@ -674,92 +1083,142 @@ word-break: break-word;
     UI/UX Designer | Crafting Intuitive and User-Centered<br> Digital Experiences
 </p>
 
-<a href="#case-study" class="btn">View my Work</a>
+<a href="Resume Hina.ux.pdf" class="btn" target="_blank">View Resume</a>
 
 </div>
 
 </section>
 
 <section id="about">
-  
-<h2 class="title">About Me</h2>
 
-<div class="card">
-  <p>UI/UX Designer focused on creating simple, user-friendly digital experiences with strong emphasis on research, planning, and clean interface design.</p>
+  <h2 class="title">About Me</h2>
 
-  <p>My approach follows a complete UX workflow — from understanding the problem and user needs to delivering polished, high-fidelity interfaces in Figma.</p>
-  
-  <h3>My design process is structured end to end:</h3>
-  
-  <p>Problem Understanding → Research  → User Personas → Problem Statement → Information Architecture → User Flow → Wireframing → UI Design → Design System → Prototyping → Usability Testing → Improvements → Final Design Delivery → Case Study</p>
-  
-  <p>I enjoy transforming complex problems into simple, intuitive, and visually engaging experiences. My goal is to create clear user journeys that improve usability, accessibility, and overall user satisfaction.</p>
-</div>
+  <div class="card about-card">
+
+    <p class="intro">
+      UI/UX Designer focused on creating simple, user-friendly digital experiences
+      with strong emphasis on research, planning, and clean interface design.
+    </p>
+
+    <p>
+      My approach follows a complete UX workflow — from understanding the problem
+      and user needs to delivering polished, high-fidelity interfaces in Figma.
+    </p>
+
+    <h3>My Design Process</h3>
+
+    <div class="process">
+      <span>Problem Understanding</span>
+      <span>Research</span>
+      <span>User Personas</span>
+      <span>Problem Statement</span>
+      <span>Information Architecture</span>
+      <span>User Flow</span>
+      <span>Wireframing</span>
+      <span>UI Design</span>
+      <span>Design System</span>
+      <span>Prototyping</span>
+      <span>Usability Testing</span>
+      <span>Improvements</span>
+      <span>Final Design</span>
+      <span>Case Study</span>
+    </div>
+
+    <p>
+      I enjoy transforming complex problems into simple, intuitive, and visually engaging experiences.
+      My goal is to create clear user journeys that improve usability, accessibility, and user satisfaction.
+    </p>
+
+  </div>
 
 </section>
 
 <section id="skills">
 
-<h2 class="title">Skills</h2>
+  <h2 class="title">Skills</h2>
 
-<div class="cards">
+  <div class="cards">
 
-<div class="card">
-<h3>UI Design</h3>
-<p>Modern Interfaces, Design Systems, Visual Design</p>
-</div>
+    <div class="card skill-advanced">
+      <div class="skill-top">
+        <div class="skill-icon">🎨</div>
+        <h3>UI Design</h3>
+      </div>
+      <p>Creating modern, clean and user-friendly interfaces</p>
+      <div class="tags">
+        <span>Visual Design</span>
+        <span>Design Systems</span>
+        <span>Color Theory</span>
+      </div>
+    </div>
 
-<div class="card">
-<h3>UX Design</h3>
-<p>User Research, Wireframes, User Flows</p>
-</div>
+    <div class="card skill-advanced">
+      <div class="skill-top">
+        <div class="skill-icon">🧠</div>
+        <h3>UX Design</h3>
+      </div>
+      <p>Improving user experience through research and flows</p>
+      <div class="tags">
+        <span>User Research</span>
+        <span>Wireframing</span>
+        <span>User Flow</span>
+      </div>
+    </div>
 
-<div class="card">
-<h3>Figma</h3>
-<p>Prototyping, Auto Layout, Components</p>
-</div>
+    <div class="card skill-advanced">
+      <div class="skill-top">
+        <div class="skill-icon">⚡</div>
+        <h3>Figma</h3>
+      </div>
+      <p>Professional prototyping and design system creation</p>
+      <div class="tags">
+        <span>Auto Layout</span>
+        <span>Components</span>
+        <span>Prototyping</span>
+      </div>
+    </div>
 
-<div class="card">
-<h3>Frontend</h3>
-<p>HTML, CSS, Responsive Design</p>
-</div>
+    <div class="card skill-advanced">
+      <div class="skill-top">
+        <div class="skill-icon">💻</div>
+        <h3>Frontend</h3>
+      </div>
+      <p>Responsive and modern web interface development</p>
+      <div class="tags">
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>Responsive</span>
+      </div>
+    </div>
 
-<div class="card">
-<h3>Communication</h3>
-<p>Client Collaboration, Presentation Skills, Teamwork</p>
-</div>
-
-<div class="card">
-<h3>Problem Solving</h3>
-<p>User-Centered Solutions, Critical Thinking, Design Challenges</p>
-</div>
-
-<div class="card">
-<h3>Usability Testing</h3>
-<p>User Feedback, Testing, Design Improvements</p>
-</div>
-
-<div class="card">
-<h3>Project Management</h3>
-<p>Planning, Organization, Time Management</p>
-</div>
-
-</div>
+  </div>
 
 </section>
 
 <section>
 
-<h2 class="title">Education</h2>
+  <h2 class="title">Education</h2>
 
-<div class="card">
-<h3>Bachelor of Science in Computer Science</h3>
-<p>Virtual University (2022-2026)</p>
-<br>
-<p>Focused on Software Engineering, Human-Computer Interaction (HCI), and UI/UX Design, developing skills in user-centered design, problem-solving, and digital product development.</p>
-</div>
+  <div class="cards">
 
-</section>
+    <div class="card education-card">
+
+      <div class="edu-top">
+        <h3>Bachelor of Science in Computer Science</h3>
+        <span class="badge">2022 – 2026</span>
+      </div>
+
+      <p class="institute">Virtual University</p>
+
+      <p class="desc">
+        Focused on Software Engineering, Human-Computer Interaction (HCI),
+        and UI/UX Design. Developed strong skills in user-centered design,
+        problem-solving, and digital product development.
+      </p>
+
+    </div>
+
+  </div>
 
 </section>
 
